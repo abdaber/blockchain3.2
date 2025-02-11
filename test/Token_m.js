@@ -7,7 +7,7 @@ describe("AITU_SE2324_KV Contract", function () {
   let owner;
   let addr1;
   let addr2;
-  const initialSupply = ethers.utils.parseUnits("1000", 18); // 1000 tokens
+  const initialSupply = ethers.utils.parseUnits("1000", 18);
 
   beforeEach(async function () {
     [owner, addr1, addr2] = await ethers.getSigners();
@@ -71,7 +71,7 @@ describe("AITU_SE2324_KV Contract", function () {
   });
 
   it("Should fail for timestamp-related errors (e.g., future timestamps)", async function () {
-    const timestampFuture = Math.floor(Date.now() / 1000) + 1000; // Simulating a future timestamp
+    const timestampFuture = Math.floor(Date.now() / 1000) + 1000;
     await expect(aitu.timestampToString(timestampFuture)).to.be.revertedWith("Timestamp cannot be in the future");
   });
 
